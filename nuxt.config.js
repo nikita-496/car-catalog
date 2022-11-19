@@ -22,6 +22,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "~/plugins/api.ts",
+    "~/plugins/services.ts",
+    "~/plugins/axios-accessor.ts",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,7 +45,8 @@ export default {
     prefix: "/api/",
   },
   proxy: {
-    "/api/": { target: "https://carapi.app" },
+    //"/api/": { target: "https://carapi.app" },
+    "/api/": { target: "https://car-api2.p.rapidapi.com"}
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
