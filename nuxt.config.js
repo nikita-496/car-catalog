@@ -34,7 +34,16 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+   '@nuxtjs/axios'
   ],
+  axios: {
+    baseURL: "/",
+    proxy: true,
+    prefix: "/api/",
+  },
+  proxy: {
+    "/api/": { target: "https://carapi.app" },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

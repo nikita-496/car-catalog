@@ -4,6 +4,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "suppressImplicitAnyIndexErrors": true,
+    
     "lib": [
       "ESNext",
       "ESNext.AsyncIterable",
@@ -27,7 +28,6 @@
     "types": [
       "@nuxt/types",
       "@nuxtjs/axios",
-      "@nuxtjs/i18n",
       "@types/node"
     ]
   },
