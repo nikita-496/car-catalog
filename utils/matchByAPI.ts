@@ -2,6 +2,7 @@ import locale from "~/config/locale";
 import Storage from "~/persistent/locale-storage";
 import { atrributesGroup } from "~/config/attributes";
 import  associations  from "~/config/associations"
+import recognize from "./recognizeAttributesGroup";
 
  const match = (searchValue: string) => {
   const pattern = /[a-zA-Z]|\d|[-]\g/;
@@ -11,6 +12,9 @@ import  associations  from "~/config/associations"
     byAPI = convertByAPIValue(searchValue, match)
 
     setStorage(searchValue, byAPI)
+    if(Storage.get('query_value')) {
+      recognize(Storage.get('query_value'))
+    }
 }
 
 const convertByAPIValue = (searchValue: string, match: RegExpMatchArray | null) =>
@@ -25,14 +29,24 @@ const convertByAPIValue = (searchValue: string, match: RegExpMatchArray | null) 
 }
 
 const setStorage = ( searchValue: string, byAPI: string) => {
+  Storage.remove("query_value")
+  Storage.remove("query_type")
+  let storageValue:string = ''
+  if(
+      Object.keys(locale.en).includes(searchValue) 
+    || atrributesGroup[1].includes(byAPI) 
+    || Object.values(locale.en).includes(byAPI)
+  ) {
+    storageValue = byAPI
+  }
+
+  if(storageValue) {
     Storage.set(
-      "query_value",
-      Object.keys(locale.en).includes(searchValue)
-        ? byAPI
-        : atrributesGroup[1].includes(byAPI) ? byAPI
-        : Object.values(locale.en).includes(byAPI)
-        ? byAPI
-        : "false"
+      "query_value", storageValue
     );
+  }
+  else{
+    console.log('Ничего не найдено')
+  }
 }
 export default match

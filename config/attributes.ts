@@ -102,7 +102,7 @@ const MODELS = [
   "CX-5",
   "CX-9"]
 
- const ETERIOR_COLORS =  ["130R White", "3-Eleven Red", "Ablaze", "Absolute Black", "Absolute Zero", "Abyss Black", "Abyss Blue Pearl", "Abyss Gray Metallic", "Accelerate Yellow Metallic", "Admiral Blue", "Adriatic Blue", "Aegean Blue Metallic"]
+ const EXTERIOR_COLORS =  ["130R White", "3-Eleven Red", "Ablaze", "Absolute Black", "Absolute Zero", "Abyss Black", "Abyss Blue Pearl", "Abyss Gray Metallic", "Accelerate Yellow Metallic", "Admiral Blue", "Adriatic Blue", "Aegean Blue Metallic"]
 
  const INTERIOR_COLORS = ["50th Anniversary, leather", "50th Anniversary, premium leather", "Acorn w/Ebony Headliner, leather", "Acorn w/Light Oyster Headliner, leather", "Acorn, leather", "Acorn, premium leather", "Acorn/Lunar, leather", "Acorn/Lunar, premium leather", "Adelaide Grey Full Merino, premium leather", "Adrenaline Red, leather", "Adrenaline Red, premium cloth/sueded microfiber", "Adrenaline Red, premium leather", "Adrenaline Red, premium leather/sueded microfiber", "Adrenaline Red/Jet Black, premium leather", "Adrenaline Red/Jet Black, premium leather/sueded microfiber", "Agate Grey, leather", "Agate Grey, leather/sueded microfiber", "Agate Grey/Pebble Grey, leather", "Agave Green w/Chalk Stitching, premium leather", "Agave Green, premium leather"]
 
@@ -114,4 +114,4 @@ const ENGINES = ["diesel", "electric", "gas", "hybrid", "mild hybrid"]
 
 
 
-export const atrributesGroup = [MAKES, MODELS, ETERIOR_COLORS, INTERIOR_COLORS, TRIMS, BODIES, ENGINES ]
+export const atrributesGroup = [MAKES, MODELS, EXTERIOR_COLORS, INTERIOR_COLORS, TRIMS, BODIES, ENGINES ]
