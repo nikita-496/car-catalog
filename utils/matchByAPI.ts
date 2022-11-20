@@ -1,6 +1,6 @@
 import locale from "~/config/locale";
 import Storage from "~/persistent/locale-storage";
-import { enums } from "~/config/attributes";
+import { atrributesGroup } from "~/config/attributes";
 import  associations  from "~/config/associations"
 
  const match = (searchValue: string) => {
@@ -29,7 +29,7 @@ const setStorage = ( searchValue: string, byAPI: string) => {
       "query_value",
       Object.keys(locale.en).includes(searchValue)
         ? byAPI
-        : enums[1][byAPI] ? byAPI
+        : atrributesGroup[1].includes(byAPI) ? byAPI
         : Object.values(locale.en).includes(byAPI)
         ? byAPI
         : "false"

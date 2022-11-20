@@ -114,4 +114,4 @@ const ENGINES = ["diesel", "electric", "gas", "hybrid", "mild hybrid"]
 
 
 
-export const enums = [MAKES, MODELS, ETERIOR_COLORS, INTERIOR_COLORS, TRIMS, BODIES, ENGINES ]
+export const atrributesGroup = [MAKES, MODELS, ETERIOR_COLORS, INTERIOR_COLORS, TRIMS, BODIES, ENGINES ]
