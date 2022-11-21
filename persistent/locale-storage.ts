@@ -5,7 +5,6 @@ class Storage {
     }
   }
   set(key: string, val: string) {
-    console.log(key, val)
     if (typeof window != "undefined") {
       localStorage.setItem(key, val);
     }
