@@ -112,7 +112,7 @@ export class Car extends VuexModule implements ICarState {
     this.car = payload
   }
 
-  @action async fetchCarById(promises: TrimItem[] | ColorItem[] | EngineItem[]) {
+  @action async fetchGroupCarById(promises: TrimItem[] | ColorItem[] | EngineItem[]) {
     let result: Promise<Object> | Object= {} 
       result =  await Promise.all(promises.map(async (promise: TrimItem | ColorItem | EngineItem ):Promise<Object> => {
         const id: ID = promise['make_model_trim_id'] ? promise['make_model_trim_id'] : promise.id
@@ -120,6 +120,11 @@ export class Car extends VuexModule implements ICarState {
         return response.data
       }))
     this.setCar(result)
+  }
+
+  @action async fetchCarById(id: number) {
+    const response: AxiosResponse = await $getTrimsById(id)
+    this.setCar(response.data)
   }
 }
 

@@ -31,7 +31,7 @@ export default class extends Vue {
   async fetchAll() {
     await vmx.trim.fetchTrim(1);
     const trims = vmx.trim.getTrim;
-    await vmx.car.fetchCarById(trims);
+    await vmx.car.fetchGroupCarById(trims);
     this.cars = vmx.car.getCar;
   }
 
@@ -39,7 +39,7 @@ export default class extends Vue {
     value: TrimItem[] | ColorItem[] | EngineItem[] | boolean
   ) {
     if (value) {
-      await vmx.car.fetchCarById(value);
+      await vmx.car.fetchGroupCarById(value);
       this.cars = vmx.car.getCar;
       this.cars[0].id ? this.isContentFound = true : this.isContentFound = false
     } else {
