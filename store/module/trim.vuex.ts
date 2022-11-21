@@ -1,8 +1,9 @@
-import { TrimItem } from './model/Attributes';
+import { TrimItem } from '../model/Attributes';
 ;
 import { createModule, mutation, action } from "vuex-class-component";
 import { $getTrims } from '~/plugins/services';
 import {AxiosResponse} from "axios";
+import Storage from "~/persistent/locale-storage";
 
 const VuexModule = createModule({
   namespaced: "trim",
@@ -26,19 +27,26 @@ export class CarTrim extends VuexModule implements ICarTrimState {
     }
   ]
   
+  get getTrim() {
+    if(this.trim) {
+      return this.trim
+    }
+  }
+
   @mutation setTrim(payload: TrimItem[]) {
     this.trim = payload
   }
 
   @action async fetchTrim(page: number) {
-    const response: AxiosResponse = await $getTrims(page)
-    this.setTrim(response.data.data)
-  }
 
-  get getTrim() {
-    if(this.trim) {
-      return this.trim
-    }
+    const value = Storage.get("query_value")
+    const type =  Storage.get("query_type")?.toLowerCase()
+    const attributes = value ? `&${type}=${value}` : ''
+
+    const response: AxiosResponse = await $getTrims(page, attributes)
+    Storage.remove("query_value")
+    Storage.remove("query_type")
+    this.setTrim(response.data.data)
   }
 
 }

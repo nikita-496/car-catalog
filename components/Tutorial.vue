@@ -12,13 +12,17 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
 import { vmx } from "~/store/store.vuex";
-import match from "~/utils/matchByAPI"
+import matchAttributes from "~/utils/matchAttributes"
+import recognizeModule from "~/utils/recognizeModule";
+import { TrimUniqItem } from '~/store/model/Attributes';
+
 
 @Component
 export default class Tutorial extends Vue {
   public trims: any = [];
-  public cars: any = [];
+  public cars: [] | TrimUniqItem[] = [];
   public searchValue: string = "";
+
 
   private async mounted() {
     await vmx.trim.fetchTrim(1);
@@ -30,8 +34,13 @@ export default class Tutorial extends Vue {
     return "Hellow World";
   }
 
-  onSearch() {
-   match(this.searchValue)
+  async onSearch() {
+   matchAttributes(this.searchValue)
+   const result = await recognizeModule()
+
+   await vmx.car.fetchCarById(result)
+   this.cars = vmx.car.getCar
   }
+
 }
 </script>

@@ -1,4 +1,4 @@
-import { TrimItem, TrimUniqItem } from './model/Attributes';
+import { ColorItem, EngineItem,  TrimItem, TrimUniqItem } from '../model/Attributes';
 ;
 import { createModule, mutation, action } from "vuex-class-component";
 import { $getTrimsById } from '~/plugins/services';
@@ -101,25 +101,25 @@ export class Car extends VuexModule implements ICarState {
       },
   }
   ]
-  
-  @mutation setCar(payload: TrimUniqItem[]) {
-    this.car = payload
-  }
-
-  @action async fetchCarById(trims: TrimItem[]) {
-    const result =  await Promise.all(trims.map(async (trim: TrimItem):Promise<Object> => {
-      const id: ID = trim.id
-      const response: AxiosResponse = await $getTrimsById(id)
-      return response.data
-    }))
-    this.setCar(result)
-  }
 
   get getCar() {
     if(this.car) {
       return this.car
     }
   }
+  
+  @mutation setCar(payload: TrimUniqItem[]) {
+    this.car = payload
+  }
 
+  @action async fetchCarById(promises: TrimItem[] | ColorItem[] | EngineItem[]) {
+    let result: Promise<Object> | Object= {} 
+      result =  await Promise.all(promises.map(async (promise: TrimItem | ColorItem | EngineItem ):Promise<Object> => {
+        const id: ID = promise['make_model_trim_id'] ? promise['make_model_trim_id'] : promise.id
+        const response: AxiosResponse = await $getTrimsById(id)
+        return response.data
+      }))
+    this.setCar(result)
+  }
 }
 

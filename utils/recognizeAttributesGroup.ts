@@ -2,7 +2,7 @@ import { atrributesGroup } from "~/config/attributes"
 import Storage from "~/persistent/locale-storage";
 
 const recognize = (attribute: string) => {
-  const group = ['MAKES', 'MODELS', 'EXTERIOR_COLORS', 'INTERIOR_COLORS', 'TRIMS', 'BODIES', 'ENGINES']
+  const group = ['MAKE', 'MODEL', 'TYPE', 'ENGINE_TYPE']
   const length = atrributesGroup.length
   let index: number = -1
 

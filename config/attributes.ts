@@ -1,6 +1,6 @@
-const MAKES = ["Acura", "Alfa Romeo", "Aston Martin", "Audi", "Bentley", "BMW", "Buick", "Cadillac", "Chevrolet", "Chrysler", "Dodge", "FIAT", "Ford", "Genesis", "GMC", "Honda", "Hyundai", "INFINITI", "Jaguar", "Jeep", "Kia", "Lamborghini", "Land Rover", "Lexus", "Lincoln", "Lotus", "Maserati", "Mazda", "McLaren", "Mercedes-Benz", "MINI", "Mitsubishi", "Nissan", "Polestar", "Porsche", "Ram", "Rolls-Royce", "Subaru", "Tesla", "Toyota", "Volkswagen", "Volvo"]
+const MAKE = ["Acura", "Alfa Romeo", "Aston Martin", "Audi", "Bentley", "BMW", "Buick", "Cadillac", "Chevrolet", "Chrysler", "Dodge", "FIAT", "Ford", "Genesis", "GMC", "Honda", "Hyundai", "INFINITI", "Jaguar", "Jeep", "Kia", "Lamborghini", "Land Rover", "Lexus", "Lincoln", "Lotus", "Maserati", "Mazda", "McLaren", "Mercedes-Benz", "MINI", "Mitsubishi", "Nissan", "Polestar", "Porsche", "Ram", "Rolls-Royce", "Subaru", "Tesla", "Toyota", "Volkswagen", "Volvo"]
 
-const MODELS = [
+const MODEL = [
   "1",
   "124 Spider",
   "1500",
@@ -102,16 +102,10 @@ const MODELS = [
   "CX-5",
   "CX-9"]
 
- const EXTERIOR_COLORS =  ["130R White", "3-Eleven Red", "Ablaze", "Absolute Black", "Absolute Zero", "Abyss Black", "Abyss Blue Pearl", "Abyss Gray Metallic", "Accelerate Yellow Metallic", "Admiral Blue", "Adriatic Blue", "Aegean Blue Metallic"]
 
- const INTERIOR_COLORS = ["50th Anniversary, leather", "50th Anniversary, premium leather", "Acorn w/Ebony Headliner, leather", "Acorn w/Light Oyster Headliner, leather", "Acorn, leather", "Acorn, premium leather", "Acorn/Lunar, leather", "Acorn/Lunar, premium leather", "Adelaide Grey Full Merino, premium leather", "Adrenaline Red, leather", "Adrenaline Red, premium cloth/sueded microfiber", "Adrenaline Red, premium leather", "Adrenaline Red, premium leather/sueded microfiber", "Adrenaline Red/Jet Black, premium leather", "Adrenaline Red/Jet Black, premium leather/sueded microfiber", "Agate Grey, leather", "Agate Grey, leather/sueded microfiber", "Agate Grey/Pebble Grey, leather", "Agave Green w/Chalk Stitching, premium leather", "Agave Green, premium leather"]
-
-const TRIMS = ['10 Years Edition', '110 P300', "110 P300 S", "110 P400 First Edition", "110 P400 HSE", "110 P400 SE", "110 P400 X", "126\" WB Cargo", "135\" WB Cargo", "150 Low Roof", "150 XL Low Roof", "150 XLT Low Roof", "150 XLT Medium Roof", "1500 144\" WB Cargo", "1500 144\" WB Passenger", "1500 High Roof", "1500 Low Roof", "1500 S", "1500 SV", "1794", "1LS", "1LT", "1SS", "1SV", "2", "2.0 BE", "2.0 ES", "2.0 Premium", "2.0 SE", "2.0 SP", "2.0T", "2.0T Sport M/T", "2.4 GT", "2.5 Platinum", "2.5 S", "2.5 SL", "2.5 SR", "2.5 SV", "2+0", "2+2", "200", "200 F SPORT", "200 Luxury", "200h", "200h F SPORT", "200h Luxury", "228i xDrive", "230i", "230i xDrive", "250 High Roof"]
 
 const BODIES = ["Sedan", "SUV", "Coupe", "Convertible", "Wagon", "Hatchback"]
 
 const ENGINES = ["diesel", "electric", "gas", "hybrid", "mild hybrid"]
 
-
-
-export const atrributesGroup = [MAKES, MODELS, EXTERIOR_COLORS, INTERIOR_COLORS, TRIMS, BODIES, ENGINES ]
+export const atrributesGroup = [MAKE, MODEL, BODIES, ENGINES ]
