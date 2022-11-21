@@ -19,6 +19,8 @@
     "vuex-class-component": "^2.3.6"
   },
   "devDependencies": {
-    "@nuxt/typescript-build": "^2.1.0"
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/google-fonts": "^2.0.0",
+    "sass": "^1.56.1"
   }
 }

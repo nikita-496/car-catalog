@@ -1,11 +1,13 @@
 <template>
   <div>
-    <input
-      placeholder="Поиск по катологу"
-      v-model.trim="searchValue"
-      @keypress.enter="onSearch"
-    />
-    <p>{{ message }}</p>
+   <form class="search-wrapper cf">
+        <input type="text" placeholder="Поиск по каталогу" required style="box-shadow: none">
+        <button type="submit">Искать</button>
+    </form>
+      <h1 class="">
+    Hello world!
+  </h1>
+    
   </div>
 </template>
 
@@ -30,9 +32,6 @@ export default class Tutorial extends Vue {
     await vmx.car.fetchCarById(this.trims);
     this.cars = vmx.car.getCar;
   }
-  get message(): string {
-    return "Hellow World";
-  }
 
   async onSearch() {
    matchAttributes(this.searchValue)
@@ -44,3 +43,4 @@ export default class Tutorial extends Vue {
 
 }
 </script>
+
