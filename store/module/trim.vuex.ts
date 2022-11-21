@@ -12,7 +12,8 @@ const VuexModule = createModule({
 })
 
 interface ICarTrimState {
-   trim: TrimItem[]
+   trim: TrimItem[],
+   amount: number
 }
 export class CarTrim extends VuexModule implements ICarTrimState {
   public trim: TrimItem[] = [
@@ -26,6 +27,7 @@ export class CarTrim extends VuexModule implements ICarTrimState {
       invoice: null
     }
   ]
+  public amount: number = 0
   
   get getTrim() {
     if(this.trim) {
@@ -33,8 +35,16 @@ export class CarTrim extends VuexModule implements ICarTrimState {
     }
   }
 
+  get getAmount() {
+    return this.amount
+  }
+
   @mutation setTrim(payload: TrimItem[]) {
     this.trim = payload
+  }
+
+  @mutation setAmount(payload: number) {
+    this.amount = payload
   }
 
   @action async fetchTrim(page: number) {
@@ -46,7 +56,9 @@ export class CarTrim extends VuexModule implements ICarTrimState {
     const response: AxiosResponse = await $getTrims(page, attributes)
     Storage.remove("query_value")
     Storage.remove("query_type")
+
     this.setTrim(response.data.data)
+    this.setAmount(response.data.collection.total)
   }
 
 }

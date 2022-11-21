@@ -26,6 +26,7 @@ export default {
     "~/plugins/api.ts",
     "~/plugins/services.ts",
     "~/plugins/axios-accessor.ts",
+    '~/plugins/vuetify.ts'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -34,8 +35,13 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/vuetify',
   ],
+
+  vuetify: {
+    customVariables: ['~/assets/scss/_vars.scss']
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

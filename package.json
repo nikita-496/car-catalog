@@ -21,6 +21,7 @@
   "devDependencies": {
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/google-fonts": "^2.0.0",
+    "@nuxtjs/vuetify": "^1.12.3",
     "sass": "^1.56.1"
   }
 }
