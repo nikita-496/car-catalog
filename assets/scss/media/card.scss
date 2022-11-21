@@ -1,0 +1,25 @@
+@import './breackpoints.scss';
+
+@media (min-width: $mobile) {
+  .container {
+    width: 320px;
+  }
+}
+
+@media (min-width: $sm) {
+  .container {
+    width: 600px;
+  }
+}
+
+@media (min-width: $md) {
+  .container {
+    width: 720px;
+  }
+}
+
+@media (min-width: $pre-lg) {
+  .container {
+    width: 930px;
+  }
+}

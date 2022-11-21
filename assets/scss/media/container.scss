@@ -1,0 +1,9 @@
+@import './breackpoints.scss';
+
+@media (min-width: $mobile) {
+  .container {
+    width: 320px;
+    border: 1px solid #CCC;
+    padding: 20px;
+  }  
+}

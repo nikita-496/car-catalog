@@ -1,3 +1,23 @@
 :root {
   font-family: Roboto;
+  box-sizing: border-box;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.container {
+  width: 320px;
+  margin: 40px auto;
+  border: 1px solid #CCC;
+  padding: 15px;
+}
+
+ul {
+  padding: 0em;
+}
+
+@import './media/container.scss';
