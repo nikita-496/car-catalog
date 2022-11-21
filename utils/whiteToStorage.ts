@@ -5,13 +5,17 @@ import { atrributesGroup } from "~/config/attributes";
 import  rgb  from "~/config/rgb"
 import recognize from "./recognizeAttributesGroup";
 
-const write = (searchValue: string, byAPI: string ): void => {
+const write = (searchValue: string, byAPI: string ): boolean => {
+  let found: boolean = true
+
   if (byAPI) {
     setStorage(searchValue, byAPI)
     recognize(Storage.get('query_value'))
   } else {
-    selectColorType(searchValue)
+    Object.keys(rgb.colors.exterior).includes(searchValue) || Object.keys(rgb.colors.interior).includes(searchValue) ? selectColorType(searchValue) : found = false 
   } 
+  
+  return found
 }
 
 const selectColorType = (searchValue: string) => {
@@ -36,15 +40,9 @@ const setStorage = ( searchValue: string, byAPI: string) => {
     || Object.values(locale.en).includes(byAPI)
   ) {
     storageValue = byAPI
-  }
-
-  if(storageValue) {
     Storage.set(
       "query_value", storageValue
     );
-  }
-  else{
-    console.log('Ничего не найдено')
   }
 }
 
