@@ -1,0 +1,43 @@
+.car-container{
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 15px;
+
+  .figure{
+    display: flex;
+    column-gap: 35px;
+    &-img{
+    
+    }
+  }
+
+  .info{
+    display: flex;
+    justify-content:space-between;
+    .info-tite{
+      display: inline-block;
+      margin-bottom: .6em;
+    }
+    .info-list{
+      display: flex;
+      flex-flow: column nowrap;
+      row-gap: 10px;
+      width: 400px;
+    }
+    &__last{
+      justify-content:flex-start;
+      .color-item{
+        display: flex;
+        column-gap: 50px;
+        &__attribute{
+          align-self: center;
+        }
+        &__attribute-value{
+          display: block;
+          position: relative;
+          bottom: 1em;
+        }
+      }
+    }
+  }
+}

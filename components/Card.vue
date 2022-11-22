@@ -153,7 +153,7 @@ import { TrimUniqItem } from "~/store/model/Attributes";
 @Component
 export default class Card extends Vue {
   @Prop([]) readonly items: TrimUniqItem[];
-  @Prop(Object) readonly itemsFromTail: TrimUniqItem;
+  @Prop([]) readonly itemsFromTail: TrimUniqItem;
 }
 </script>
 
