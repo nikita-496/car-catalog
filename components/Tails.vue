@@ -20,5 +20,3 @@ export default class Tail extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>

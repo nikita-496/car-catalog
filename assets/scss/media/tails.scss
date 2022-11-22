@@ -1,17 +1,85 @@
 @import './breackpoints.scss';
 
-@media (min-width: $mobile) {
-  .container {
-    &-tail {
-      padding: 0em;
+
+@media (min-width:  340px) {
+  .item{
+    .card-img{
+      width: 260px;
     }
   }
 }
 
-@media (min-width: $md) {
-  .container {
-    &-tail {
-      padding: 0em;
+@media (min-width: $mobile) {
+  .container-tail  {
+    .item{
+      width: 31%;
+      .card-img{
+        width: 150px;
+      }
+      .card-body{
+        font-size: 14px;
+      }
+      .card-footer{
+        font-size: 14px;
+      }
     }
+    .item:nth-child(1) {
+      .card-body{
+        font-size: 12px;
+      }
+    }
+    .item:nth-child(2) {
+      .card-body{
+        font-size: 12px;
+      }
+      .card-img{
+        width: 100px;
+      }
+      .card-title{
+        font-size: 14px;
+      }
+    }
+    .item:nth-child(3) {
+      .card-img{
+        width: 100px;
+      }
+      .card-title{
+        font-size: 14px;
+      }
+    }
+    .item:nth-child(6) {
+      .card-body{
+        font-size: 12px;
+      }
+      .card-img{
+    width: 100px;
+  }
+  .card-title{
+    font-size: 14px;
+  }
+    }
+    .item:nth-child(7) {
+     display: flex;
+     align-items: center;
+    }
+    
+    height: 800px;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: $sm) {
+  .container-tail  {
+    .item {
+      .card-top{
+        flex-flow: row nowrap;
+      }
+      .card-title{
+        font-size: 18px;
+      }
+      .card-footer{
+        font-size: 16px;
+      }
+    } 
   }
 }

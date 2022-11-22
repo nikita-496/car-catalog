@@ -57,11 +57,8 @@
 	.card-title {
 		font-size: 18px;
 		line-height: 24px;
-    color: #676767 !important
-	}
-
-	.card-meta {
-		font-size: 1.3rem;
+    color: #676767 !important;
+    word-wrap: break-word;
 	}
 	.card-block.card-block-separator {
 		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -72,6 +69,11 @@
 	&:hover {
 		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 	}
+}
+
+.card-meta {
+
+  justify-content: center !important; 
 }
 
 
@@ -124,4 +126,6 @@
     padding-top: 10px
   }
 }
+
+
 @import './media/card.scss';
