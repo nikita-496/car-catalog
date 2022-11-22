@@ -1,0 +1,17 @@
+@import './breackpoints.scss';
+
+@media (min-width: $mobile) {
+  .container {
+    &-tail {
+      padding: 0em;
+    }
+  }
+}
+
+@media (min-width: $md) {
+  .container {
+    &-tail {
+      padding: 0em;
+    }
+  }
+}
