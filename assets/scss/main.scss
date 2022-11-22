@@ -12,7 +12,6 @@
 .container {
   width: 320px;
   margin: 40px auto;
-  border: 1px solid #CCC;
   padding: 15px;
 }
 
@@ -24,4 +23,8 @@ li{
   list-style: none
 }
 
+a{
+  color: black;
+  text-decoration: none
+}
 @import './media/container.scss';

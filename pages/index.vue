@@ -7,7 +7,7 @@
       <div v-else>
         <tabs @set-horizontal="defineTabType" @set-tail="defineTabType">
           <section v-if="tabType === 'horizontal'" class="card-section">
-              <card :items="cars" />
+              <card :items="cars"/>
           </section>
           <section v-else class="tails-section">
             <tails v-for="n in 3" :key="n" :items="cars" :start="n === 1 ? 0 : n === 2 ? 7 : 14" :end="n === 1 ? 7 : n === 2 ? 14 : 21"/>
