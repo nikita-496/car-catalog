@@ -5,7 +5,6 @@ import { Car } from './module/car.vuex';
 import { CarTrim } from './module/trim.vuex';
 import { CarEngine } from './module/engine.vuex';
 import { CarBody } from './module/body.vuex';
-import { CarColor } from './module/color.vuex';
 import { CarModel } from './module/model.vex';
 import { Loading } from "./loading.vuex";
 
@@ -18,7 +17,6 @@ export const store = new Vuex.Store({
     ...extractVuexModule( Car ),
     ...extractVuexModule( CarMake ),
     ...extractVuexModule( CarModel ),
-    ...extractVuexModule( CarColor ),
     ...extractVuexModule( CarBody ),
     ...extractVuexModule( CarEngine ),
     ...extractVuexModule ( Loading )
@@ -48,7 +46,6 @@ export const vmx = {
   car: createProxy(store, Car),
   make: createProxy(store, CarMake),
   model: createProxy(store, CarModel),
-  color: createProxy (store, CarColor),
   body: createProxy (store, CarBody),
   engine: createProxy(store, CarEngine),
   loading: createProxy(store, Loading)

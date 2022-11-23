@@ -1,3 +1,4 @@
+import { vmx } from './../store.vuex';
 import { BodyItem } from '../model/Attributes';
 ;
 import { createModule, mutation, action } from "vuex-class-component";
@@ -55,7 +56,7 @@ export class CarBody extends VuexModule implements ICarBodyState {
     const attributes = value ? `${type}=${value}` : ''
 
     const response: AxiosResponse = await $getBodies(page, attributes)
+    vmx.trim.setAmount(response.data.collection.total)
     this.setBody(response.data.data)
   }
-
 }

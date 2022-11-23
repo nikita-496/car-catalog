@@ -1,5 +1,6 @@
+import { vmx } from './../store.vuex';
 import  Storage  from '~/persistent/locale-storage';
-import { EngineItem } from './model/Attributes';
+import { EngineItem } from '../model/Attributes';
 import { createModule, mutation, action } from "vuex-class-component";
 import { $getEngines} from '~/plugins/services';
 import {AxiosResponse} from "axios";
@@ -49,7 +50,7 @@ export class CarEngine extends VuexModule implements ICarEngineState {
     const value = Storage.get('query_value')
     const attributes = `${type}=${value}`
     const response: AxiosResponse = await $getEngines(page, attributes)
-    console.log(response)
+    vmx.trim.setAmount(response.data.collection.total)
     this.setEngine(response.data.data)
   }
 }
