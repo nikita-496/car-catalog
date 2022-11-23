@@ -2,8 +2,10 @@ import { API } from "./api";
 import {AxiosResponse} from "axios";
 import { $axios } from "~/utils/api";
 
+// Без платной подписки API предоставляет набор данных, ограниченный автомобилями 2020 года.
+// https://carapi.app/api
+
 type pagingRequest = (pageNumber: number, attribute?: string) => Promise<AxiosResponse<any>>
-type request = () => Promise<AxiosResponse<any>>
 enum Query {
   sort = "sort=id", year = "year=2020", limit = "limit=21"
 }
@@ -34,18 +36,5 @@ $getBodies =  async (pageNumber: number, attribute?: string) => await $axios.get
 let $getEngines: pagingRequest
 $getEngines =  async (pageNumber: number, attribute?: string) => await $axios.get(`${API.Engines}?page=${pageNumber}&${Query.limit}&${Query.sort}&${attribute}&${Query.year}`)
 
-let $getAllColorExterior: request
-$getAllColorExterior =  async () => await $axios.get(`${API.Exterior}?&${Query.sort}&${Query.year}`)
-let $getColorExterior: pagingRequest
-$getColorExterior =  async (pageNumber: number, attribute?: string) => await $axios.get(`${API.Exterior}?page=${pageNumber}&${Query.limit}&${Query.sort}&${attribute}&${Query.year}`)
 
-let $getAllColorInterior: request
-$getAllColorInterior =  async () => await $axios.get(`${API.Interior}?&${Query.sort}&${Query.year}`)
-let $getColorInterior: pagingRequest
-$getColorInterior =  async (pageNumber: number, attribute?: string) => await $axios.get(`${API.Interior}?page=${pageNumber}&${Query.limit}&${Query.sort}&${attribute}&${Query.year}`)
-
-let $getMileages: pagingRequest
-$getMileages =  async (pageNumber: number ) => await $axios.get(`${API.Interior}?page=${pageNumber}&${Query.limit}&${Query.sort}&${Query.year}`)
-
-
-export {$getMakes, $getModels, $getTrims, $getTrimsById, $getBodies, $getEngines, $getColorExterior, $getColorInterior, $getMileages, $getAllColorExterior, $getAllColorInterior}
+export {$getMakes, $getModels, $getTrims, $getTrimsById, $getBodies, $getEngines }
