@@ -3,7 +3,9 @@
     <loading-bar v-if="loading.getLoading"/>
     <main v-else class="main">
       <search-input @handle-search="fetchByAttribute" />
-      <h1 v-if="!isContentFound">Ничего не найдено</h1>
+      <div class="notFound" v-if="!isContentFound">
+          <h1 class="notFound-title">Ничего не найдено</h1>
+      </div>
       <div v-else>
         <tabs @set-horizontal="defineTabType" @set-tail="defineTabType">
           <section v-if="tabType === 'horizontal'" class="card-section">
@@ -14,7 +16,7 @@
           </section>
         </tabs>
         <!-- 21 - limit page -->
-        <paging @update-page="changePage" :total="Math.ceil(total / 21)" />
+        <paging @update-page="changePage" :total="Math.ceil(total / 21)" :curent="page"/>
       </div>
     </main>
   </div>
@@ -86,3 +88,14 @@ export default class extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.notFound{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-title{
+    margin: 3em;
+  }
+}
+</style>

@@ -56,24 +56,24 @@
                 <p>
                   {{ $t("ground_clearance") }} -
                   <span class="info-value">{{
-                    car["make_model_trim_body"]["ground_clearance"]
-                  }}</span>
+                    (car["make_model_trim_body"]["ground_clearance"]
+                  * 23.962).toFixed(3)}} мм </span>
                 </p>
               </li>
               <li>
                 <p>
                   {{ $t("height") }} -
                   <span class="info-value">{{
-                    car["make_model_trim_body"].height
-                  }}</span>
+                    ( car["make_model_trim_body"].height * 23.962).toFixed(3)
+                  }} мм</span>
                 </p>
               </li>
               <li>
                 <p>
                   {{ $t("length") }} -
                   <span class="info-value">{{
-                    car["make_model_trim_body"].length
-                  }}</span>
+                    ( car["make_model_trim_body"].length * 23.962)
+                  }} мм</span>
                 </p>
               </li>
               <li v-if="car['make_model_trim_body']['max_cargo_capacity']">
@@ -104,16 +104,16 @@
                 <p>
                   {{ $t("wheel_base") }} -
                   <span class="info-value">{{
-                    car["make_model_trim_body"]["wheel_base"]
-                  }}</span>
+                    ( car["make_model_trim_body"]["wheel_base"] * 23.962).toFixed(3)
+                  }} мм</span>
                 </p>
               </li>
               <li>
                 <p>
                   {{ $t("width") }} -
                   <span class="info-value">{{
-                    car["make_model_trim_body"]["width"]
-                  }}</span>
+                    ( car["make_model_trim_body"]["width"] * 23.962).toFixed(3)
+                  }} мм</span>
                 </p>
               </li>
             </ul>
@@ -150,7 +150,7 @@
                   {{ $t("horsepower_hp") }} -
                   <span class="info-value">{{
                     $t(car["make_model_trim_engine"]["horsepower_hp"])
-                  }}</span>
+                  }} л.с.</span>
                 </p>
               </li>
               <li>
@@ -166,7 +166,7 @@
                   {{ $t("torque_ft_lbs") }} -
                   <span class="info-value">{{
                     $t(car["make_model_trim_engine"]["torque_ft_lbs"])
-                  }}</span>
+                  }} Н*м</span>
                 </p>
               </li>
               <li>
@@ -197,48 +197,48 @@
                 <p>
                   {{ $t("fuel_tank_capacity") }} -
                   <span class="info-value">{{
-                    $t(car["make_model_trim_mileage"]["fuel_tank_capacity"])
-                  }}</span>
+                    $t(Math.floor(car["make_model_trim_mileage"]["fuel_tank_capacity"] * 3.79))
+                  }} л</span>
                 </p>
               </li>
               <li>
                 <p>
                   {{ $t("combined_mpg") }} -
                   <span class="info-value">{{
-                    $t(car["make_model_trim_mileage"]["combined_mpg"])
-                  }}</span>
+                    $t(Math.floor(car["make_model_trim_mileage"]["combined_mpg"] / 2.449))
+                  }} л</span>
                 </p>
               </li>
               <li>
                 <p>
                   {{ $t("epa_city_mpg") }} -
                   <span class="info-value">{{
-                    $t(car["make_model_trim_mileage"]["epa_city_mpg"])
-                  }}</span>
+                    $t(Math.floor(car["make_model_trim_mileage"]["epa_city_mpg"] / 2.449))
+                  }} л</span>
                 </p>
               </li>
               <li>
                 <p>
                   {{ $t("epa_highway_mpg") }} -
                   <span class="info-value">{{
-                    $t(car["make_model_trim_mileage"]["epa_highway_mpg"])
-                  }}</span>
+                    $t(Math.floor(car["make_model_trim_mileage"]["epa_highway_mpg"] / 2.449))
+                  }} л</span>
                 </p>
               </li>
               <li>
                 <p>
                   {{ $t("range_city") }} -
                   <span class="info-value">{{
-                    $t(car["make_model_trim_mileage"]["range_city"])
-                  }}</span>
+                    $t(Math.floor(car["make_model_trim_mileage"]["range_city"] * 1.609))
+                  }} км</span>
                 </p>
               </li>
               <li>
                 <p>
                   {{ $t("range_highway") }} -
                   <span class="info-value">{{
-                    $t(car["make_model_trim_mileage"]["range_highway"])
-                  }}</span>
+                    $t(Math.floor(car["make_model_trim_mileage"]["range_highway"] * 1.609))
+                  }} км</span>
                 </p>
               </li>
             </ul>
