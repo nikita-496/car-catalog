@@ -19,7 +19,11 @@ export default class extends Vue {
 
   @Emit('handle-search')
   async handleSearch() {
-   const isFound: boolean = matchAttributes(this.searchValue)
+
+    const capitlFirst = this.searchValue.toLowerCase().split('')
+    capitlFirst.splice(0, 1, capitlFirst[0].toUpperCase())
+    
+   const isFound: boolean = matchAttributes(capitlFirst.join(''))
     if(isFound) {
       const queryResult = await recognizeModule()
       return queryResult
