@@ -6,6 +6,9 @@ interface ReadonlyStringArray {
   },
 }
 
+// Сопоставления с запросами, введённых с кириллицы 
+// Запросы реализованы по критериям: Модель автомобиля, марка, кузов, двигатель
+
 const locale: ReadonlyStringArray  =  {
   en: {
     'Акура': 'Acura',
@@ -15,7 +18,8 @@ const locale: ReadonlyStringArray  =  {
     'Астен Мартин': 'Aston Martin',
     'Ауди': 'Audi',
     'Бентли': 'Bentley',
-    'БМВ': 'BMW',
+    'Бэнтли': 'Bentley',
+    'Бмв': 'BMW',
     'Бьюик': 'Buick',
     'Бюик': 'Buick',
     'Кадилак': 'Cadillac',
@@ -66,62 +70,19 @@ const locale: ReadonlyStringArray  =  {
     'Вольцваген': 'Volkswagen',
     'Вольво': 'Volvo', 
 
-    //Trim
-    'Наименование отделки': 'name',
-    'Полное описание отделки' : 'description',
-    'Розничная стоимость': 'msrp',
-    'Стоимость у автодилеров': 'invoice',
-
-    //TrimById
-    'Цвет отделки салона': 'make_model_trim_interior_colors',
-    'Модель отдлеки двигателя': 'make_model_trim_engine',
-    'Мдель отделки кузова': 'make_model_trim_body',
-    'Модель производителя': 'make_model',
-
     //Body
-    'type': 'Тип кузова',
-    'doors': 'Количество дверей',
-    'seats': 'Количество пассажирских мест',
-    'length': 'Общая длина',
-    'height': 'Общая высота',
-    'width': 'Общая ширина',
-    'wheel_base' :'Колёсная база',
-    'front_track': 'Расстояние между передними колёсами',
-    'ground_clearance': 'Дорожный просвет (клиренс)',
-    'cargo_capacity': 'Объём пространства грузового отсека',
-    'curb_weight': 'Снаряжённая масса',
-    'gross_weigh': 'Общий вес',
-    'max_payload': 'Макимальная полезная нагрузка', 
-    'max_towing_capacity': 'Макимальная грузоподъёмность',
-    'Sedan': 'Седан',
-    'Coupe':'Купе',
-    'Convertible':'Кабриолет',
-    'Wagon': 'Фургон',
-    'Hatchback':'Хэтчбек',
+    'Седан': 'Sedan',
+    'Купе': 'Coupe',
+    'Кабриолет': 'Convertible',
+    'Фургон': 'Wagon',
+    'Хэтчбек': 'Hatchback',
+    'Внедорожник': 'SUV',
 
-    //Engine
-    'Тип двигателя': 'engine_type',
-    'Тип топлива': 'fuel_type',
-    'Количество цилиндров': 'cylinders',
-    'Размер двигателя': 'size',
-    'Мощность': 'horsepower_hp',
-    'Крутящий момент': 'torque_ft_lbs',
-    'Количество клапанов': 'valves',
-    'Фаза газораспределения': 'valve_timing',
-    'Тип привода': 'drive_type',
-    'Трансмиссия': 'transmission',
-    'Дизель': 'diesel',
-    'Электро': 'electric',
-    'Газ': 'gas',
-    'Гибрид': 'hybrid',
-    
-    //Mileage
-    'Ёмкость топливного бака': 'fuel_tank_capacity',
-    'Расход топлива смешанный': 'combined_mpg',
-    'Расход топлива город': 'epa_city_mpg',
-    'Расход топлива трасса': 'epa_highway_mpg',
-    'Запас хода на полном баке в городе': 'range_city',
-    'Запас хода на полном баке по трассе': 'range_city'
+      //Engine
+      'Дизель': 'diesel',
+      'Электро': 'electric',
+      'Газ': 'gas',
+      'Гибрид': 'hybrid',
   }
 }
 

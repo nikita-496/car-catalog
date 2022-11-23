@@ -23,6 +23,7 @@ const MODEL = [
   "570S",
   "570S Spider",
   "6",
+  'ILX',
   "600LT Spider",
   "7 Series",
   "718 Boxster",

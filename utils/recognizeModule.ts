@@ -4,20 +4,6 @@ import Storage from "~/persistent/locale-storage";
 const recognizeModule = async (page?: number) => {
   let state: any
   switch(Storage.get("query_type")) {
-    case "RGB":
-      if (Storage.get('mode') === 'exterior') {
-          await vmx.color.fetchExterior(page ? page: 1)
-          state = vmx.color.getExterior
-          break
-          }
-      else if (Storage.get('mode') === 'interior') {
-        {
-           await vmx.color.fetchInterior(page ? page: 1)
-           state =  vmx.color.getInterior
-           break
-        } 
-      }
-
     case "TYPE":
       {
         await vmx.body.fetchBody(page ? page: 1)
