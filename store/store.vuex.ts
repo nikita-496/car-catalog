@@ -7,8 +7,12 @@ import { CarEngine } from './module/engine.vuex';
 import { CarBody } from './module/body.vuex';
 import { CarColor } from './module/color.vuex';
 import { CarModel } from './module/model.vex';
+import { Loading } from "./loading.vuex";
 
 export const store = new Vuex.Store({
+  state:{
+    isLoading: false
+  },
   modules: {
     ...extractVuexModule( CarTrim ),
     ...extractVuexModule( Car ),
@@ -16,7 +20,26 @@ export const store = new Vuex.Store({
     ...extractVuexModule( CarModel ),
     ...extractVuexModule( CarColor ),
     ...extractVuexModule( CarBody ),
-    ...extractVuexModule( CarEngine )
+    ...extractVuexModule( CarEngine ),
+    ...extractVuexModule ( Loading )
+  },
+  getters: {
+    getLoading(state) {
+      return state.isLoading
+    }
+  },
+  mutations: {
+    setLoading(state, payload) {
+      state.isLoading = payload;
+    }
+  },
+  actions: {
+    beginLoading({ commit }) {
+      commit('setLoading', true);
+    },
+    endLoading({ commit }) {
+      commit('setLoading', false);
+    },
   }
 })
 
@@ -27,5 +50,6 @@ export const vmx = {
   model: createProxy(store, CarModel),
   color: createProxy (store, CarColor),
   body: createProxy (store, CarBody),
-  engine: createProxy(store, CarEngine)
+  engine: createProxy(store, CarEngine),
+  loading: createProxy(store, Loading)
 }

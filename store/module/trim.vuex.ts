@@ -54,8 +54,6 @@ export class CarTrim extends VuexModule implements ICarTrimState {
     const attributes = value ? `&${type}=${value}` : ''
 
     const response: AxiosResponse = await $getTrims(page, attributes)
-    Storage.remove("query_value")
-    Storage.remove("query_type")
 
     this.setTrim(response.data.data)
     this.setAmount(response.data.collection.total)

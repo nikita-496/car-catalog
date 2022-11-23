@@ -1,6 +1,5 @@
 import locale from "~/config/locale";
 import write from "./whiteToStorage";
-import Storage from "~/persistent/locale-storage"
 
  const matchAttributes = (searchValue: string): boolean => {
   const pattern = /[a-zA-Z]|\d|[-]\g/;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p v-if="!cars.length">LOADING...</p>
+    <loading-bar v-if="loading.getLoading"/>
     <main v-else class="main">
       <search-input @handle-search="fetchByAttribute" />
       <h1 v-if="!isContentFound">Ничего не найдено</h1>
@@ -14,7 +14,7 @@
           </section>
         </tabs>
         <!-- 21 - limit page -->
-        <paging @update-page="changePage" :total="Math.ceil(amount / 21)" />
+        <paging @update-page="changePage" :total="Math.ceil(total / 21)" />
       </div>
     </main>
   </div>
@@ -23,6 +23,8 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
 import { vmx } from "~/store/store.vuex";
+import recognizeModule from "~/utils/recognizeModule";
+import Storage from "~/persistent/locale-storage";
 import {
   TrimUniqItem,
   TrimItem,
@@ -33,17 +35,23 @@ import {
 @Component
 export default class extends Vue {
   public cars: TrimUniqItem[] = [];
-  public amount: number = 0;
+  public loading: Object = vmx.loading;
   public page: number = 1;
   public isContentFound = true;
   public tabType: string = "horizontal";
 
   async mounted() {
-    await this.fetchAll(this.page);
-    this.amount = vmx.trim.getAmount;
+    Storage.remove("query_value")
+    Storage.remove("query_type")
+    vmx.loading.beginLoading()
+    await this.fetchCars(this.page);
+    vmx.loading.endLoading()   
   }
 
-  async fetchAll(page: number) {
+  get total () {
+    return vmx.trim.getAmount
+  }
+  async fetchCars(page: number) {
     await vmx.trim.fetchTrim(page);
     const trims = vmx.trim.getTrim;
     await vmx.car.fetchGroupCarById(trims);
@@ -54,6 +62,7 @@ export default class extends Vue {
     value: TrimItem[] | ColorItem[] | EngineItem[] | boolean
   ) {
     if (value) {
+       vmx.loading.beginLoading()
       await vmx.car.fetchGroupCarById(value);
       this.cars = vmx.car.getCar;
       this.cars[0].id
@@ -62,12 +71,13 @@ export default class extends Vue {
     } else {
       this.isContentFound = value;
     }
+    vmx.loading.endLoading()
   }
-
-  changePage(pageNumber: string) {
-    console.log(pageNumber);
+  
+  async changePage(pageNumber: string) {
     this.page = Number(pageNumber);
-    this.fetchAll(this.page);
+    const recognized = await recognizeModule(this.page)
+    this.fetchByAttribute(recognized)
   }
 
   defineTabType(val) {

@@ -1,32 +1,18 @@
 import { vmx } from '../store/store.vuex';
 import Storage from "~/persistent/locale-storage";
 
-const recognizeModule = async () => {
+const recognizeModule = async (page?: number) => {
   let state: any
   switch(Storage.get("query_type")) {
-    case "MAKE":
-      {
-        await vmx.trim.fetchTrim(1)
-        state = vmx.trim.getTrim 
-        break 
-      }
-
-    case "MODEL":
-      {
-        await vmx.trim.fetchTrim(1)
-        state = vmx.trim.getTrim 
-        break 
-      }
-      
     case "RGB":
       if (Storage.get('mode') === 'exterior') {
-          await vmx.color.fetchEterior(1)
+          await vmx.color.fetchExterior(page ? page: 1)
           state = vmx.color.getExterior
           break
           }
       else if (Storage.get('mode') === 'interior') {
         {
-           await vmx.color.fetchInterior(1)
+           await vmx.color.fetchInterior(page ? page: 1)
            state =  vmx.color.getInterior
            break
         } 
@@ -34,17 +20,21 @@ const recognizeModule = async () => {
 
     case "TYPE":
       {
-        await vmx.body.fetchBody(1)
+        await vmx.body.fetchBody(page ? page: 1)
         state = vmx.body.getBody
         break
       }
       
     case "ENGINE_TYPE":
       {
-        await vmx.engine.fetchEngine(1)
+        await vmx.engine.fetchEngine(page ? page: 1)
         state = vmx.engine.getEngine
         break
       }
+    
+    default:
+      await vmx.trim.fetchTrim(page ? page: 1)
+      state = vmx.trim.getTrim 
   }
   return state
 }

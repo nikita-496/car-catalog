@@ -73,7 +73,7 @@ export class CarColor extends VuexModule implements ICarColorState {
     this.interior = newIt
   }
 
-  @action async fetchEterior(page: number) {
+  @action async fetchExterior(page: number) {
       
     const type =  Storage.get("query_type")?.toLowerCase()
     

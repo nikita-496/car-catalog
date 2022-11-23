@@ -1,19 +1,20 @@
 <template>
-  <div>
-   <form class="search-wrapper cf" @submit.prevent>
+   <loading-bar v-if="loading.getLoading"/>
+   <form v-else class="search-wrapper cf" @submit.prevent>
         <input type="text" placeholder="Поиск по каталогу" v-model="searchValue" style="box-shadow: none">
         <button @click="handleSearch">Искать</button>
     </form>
-  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Emit  } from "vue-property-decorator";
+import { vmx } from "~/store/store.vuex";
 import matchAttributes from "~/utils/matchAttributes"
 import recognizeModule from "~/utils/recognizeModule";
 
 @Component
 export default class extends Vue {
+   public loading: Object = vmx.loading;
   public searchValue: string = "";
 
   @Emit('handle-search')
