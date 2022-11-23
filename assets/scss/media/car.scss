@@ -1,0 +1,32 @@
+@import './breackpoints.scss';
+
+@media (min-width: $mobile) {
+  .container {
+    width: 500px;
+    padding: 20px;
+  }  
+  .info{
+    & div:nth-child(3) {
+     .info-list{
+      width: 100%;
+    }
+    }
+  }
+}
+
+@media (min-width: $pre-lg) {
+  .container {
+    width: 900px;
+    padding: 20px;
+  }  
+  .info{
+    & div:nth-child(3) {
+     .info-list{
+      width: 230px;
+    }
+    }
+  }
+  .last-row{
+    column-gap: 25px;
+  }
+}

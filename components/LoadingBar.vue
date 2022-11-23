@@ -1,6 +1,6 @@
 <template>
   <div class="loader">
-    <img :src="require('/assets/loading.gif')" alt="loading"  />
+    <img :src="require('/assets/preloader.gif')" alt="loading"  />
   </div>
 </template>
 

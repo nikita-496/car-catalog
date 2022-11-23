@@ -1,5 +1,5 @@
 <template>
-    <v-card>
+    <v-card class="card">
       <v-tabs color="deep-purple accent-4">
         <v-tab @click="setHorizontal">Горизонтальный</v-tab>
         <v-tab @click="setTail">Плиточный</v-tab>
@@ -27,4 +27,8 @@ export default class Tabs extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card{
+  margin-top: 6em;
+}
+</style>

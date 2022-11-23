@@ -101,7 +101,9 @@
   row-gap: 10px;
   &__group-year, &__group-body, &__group-color, &__group-engine, &__group-invoice {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    align-items: center;
+
   }
   &__group-engine {
     align-items: center;
@@ -125,6 +127,10 @@
   .footer-item{
     padding-top: 10px
   }
+}
+
+.value{
+  align-self: flex-end
 }
 
 

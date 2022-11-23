@@ -1,7 +1,7 @@
 <template>
    <loading-bar v-if="loading.getLoading"/>
    <form v-else class="search-wrapper cf" @submit.prevent>
-        <input type="text" placeholder="Поиск по каталогу" v-model="searchValue" style="box-shadow: none">
+        <input type="text" placeholder="Поиск" v-model="searchValue" style="box-shadow: none">
         <button @click="handleSearch">Искать</button>
     </form>
 </template>

@@ -10,7 +10,7 @@
               <card :items="cars"/>
           </section>
           <section v-else class="tails-section">
-            <tails v-for="n in 3" :key="n" :items="cars" :start="n === 1 ? 0 : n === 2 ? 7 : 14" :end="n === 1 ? 7 : n === 2 ? 14 : 21"/>
+            <tails v-for="n in Math.floor(21 / 8)" :key="n" :items="cars" :start="n === 1 ? 0 : n === 2 ? 7 : 14" :end="n === 1 ? 7 : n === 2 ? 14 : 21"/>
           </section>
         </tabs>
         <!-- 21 - limit page -->
@@ -51,6 +51,7 @@ export default class extends Vue {
   get total () {
     return vmx.trim.getAmount
   }
+
   async fetchCars(page: number) {
     await vmx.trim.fetchTrim(page);
     const trims = vmx.trim.getTrim;
@@ -62,7 +63,7 @@ export default class extends Vue {
     value: TrimItem[] | ColorItem[] | EngineItem[] | boolean
   ) {
     if (value) {
-       vmx.loading.beginLoading()
+      vmx.loading.beginLoading()
       await vmx.car.fetchGroupCarById(value);
       this.cars = vmx.car.getCar;
       this.cars[0].id
